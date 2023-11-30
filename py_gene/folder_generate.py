@@ -1,21 +1,25 @@
 import os
 
-# デスクトップ上に新しいディレクトリを作成します
-new_dir_path_recursive = os.path.expanduser("~/OneDrive/Desktop/new_dir")
+
+
+#  ~ is C:/Users/kpg13/Desktop
+path_recursive = os.path.expanduser("~/Desktop/new_dir")
+
 
 class Mkdir:
-    def mkdir(path):
-            if not os.path.isdir(path):
-                os.makedirs(path)
-                Mkdir.mkdir(path)
-              
-                
-                return   path
-print(Mkdir.mkdir(new_dir_path_recursive))
+    def mkdir(path): #フォルダを生成
+        
+        if path[0] == 'C' and path[7] == 's': 
+            os.makedirs(path)
+    mkdir(path_recursive)
 
+
+
+
+##正常なパスを認識する為にパス先頭のCドライブのＣとUsersの末尾sを認識したら生成処理をする
+#それ以降はユーザー名によって隔たりがあるので参照しない
 
 '''
-if __name__ == '__main__': #インポートして別ファイルでしか上の処理はできなくなる
-        print('Sccessfully New-Folder')  #これ表示されればエラーはない
-'''        
-        
+if __name__ == '__main__':
+    input('--created  a new  folder on your  Desktop') 
+'''

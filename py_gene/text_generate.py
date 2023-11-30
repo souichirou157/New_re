@@ -1,34 +1,31 @@
 import os
-from meta import include 
-faile =["html1.html","html2.html","html3.html"]#作りたい分のファイルの数だけ名前用意
-n = len(faile)#要素数を取得
-H_text = [None] * n  # 生成したファイルを格納するn個のNone要素を持つリストを作成
-Mark_up = include.meta()
+from con_str import module #フォルダ->ファイル名
+file =["html1.html","html2.html","html3.html"]
+n = len(file)
+H_text = [None] * n  # n個のNone要素を持つリストを作成
+Mark_up =  module.mark()
 
 
-class Hyper_Text:
-        def write(self,HTML, string):
-           self.HTML = HTML
-           self.string = string 
-           with open(self.HTML, 'w', encoding='utf-8') as  html: 
-                self.HTML.write(self.string) 
-                
-                return 0
-            
-
-print(Mark_up) 
-# デスクトップ上の新しいディレクトリ内にHTMLファイルを作成します
+path = os.path.expanduser("~/Desktop/new_dir")
+class Write_text:
+    def write(HTML, string):
+        if path[0] == 'C' and path[7] == 's': 
+            with open(HTML, 'w', encoding='utf-8') as html: 
+                html.write(string) 
+            return  0 
 
 
-path1 = os.path.expanduser("~/OneDrive/Desktop/new_dir")
-if Hyper_Text == True:
-    for i in range(n):
-        H_text[i] = os.path.join(path1, faile[i])
-        Hyper_Text.write(H_text[i], Mark_up)
-            
-        
+print(Mark_up) #htmlファイルソース表示 
 
-'''
-if __name__ == '__main__':
-    print('Sccessfully New-Files ⇩') #これ表示されればエラーなし
-'''
+
+
+
+
+for i in range(n):
+        H_text[i] = os.path.join(path, file[i])
+        Write_text.write(H_text[i], Mark_up)
+    
+    
+    
+
+
